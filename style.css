@@ -2,8 +2,8 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
-  background: #06060f;
-  color: #fff;
+  background: #ff7be2;
+  color: #f5f065;
   font-family: Segoe UI, sans-serif;
   display: flex;
   flex-direction: column;
@@ -22,12 +22,12 @@ h1 {
   font-size: clamp(1.6rem, 5vw, 2.4rem);
   font-weight: 900;
   text-transform: uppercase;
-  color: #43e97b;
+  color: #f8f845;
   text-align: center;
 }
 
 .subtitle {
-  color: #8888bb;
+  color: #ebe84a;
   margin-bottom: 14px;
   text-align: center;
 }
@@ -39,7 +39,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   padding: 10px 16px;
-  background: rgba(255,255,255,0.05);
+  background: rgba(242, 244, 80, 0.05);
   border-radius: 12px 12px 0 0;
 }
 
@@ -75,7 +75,7 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 16px;
-  background: rgba(6,6,15,0.85);
+  background: rgba(217, 230, 39, 0.85);
   text-align: center;
   padding: 24px;
 }
@@ -89,12 +89,12 @@ h1 {
 
 .final-score {
   font-size: 1.5rem;
-  color: #f7c948;
+  color: #f7eb48;
 }
 
 .btn {
-  background: linear-gradient(135deg, #6a00ff, #b000e8);
-  color: #fff;
+  background: linear-gradient(135deg, #f3ec29, #efeb29);
+  color: #f5f554;
   border: none;
   padding: 14px 32px;
   border-radius: 50px;

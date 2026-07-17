@@ -5,18 +5,18 @@ const canvas_h = 480;
 const fruit_size = 38;
 const spawn_wait = 2500;
 const speed_min = 1.2;
-const speed_max = 2.5;
+const speed_max = 10.0;
 const max_lives = 3;
 const trail_len = 18;
 
 const fruit_list = [
   { emoji: "🍉", label: "watermelon" },
   { emoji: "🍊", label: "orange" },
-  { emoji: "🍎", label: "apple" },
+  { emoji: "🥭", label: "mango" },
   { emoji: "🍋", label: "lemon" },
-  { emoji: "🍇", label: "grape" },
+  { emoji: "🍏", label: "green apple" },
   { emoji: "🍓", label: "strawberry" },
-  { emoji: "🍍", label: "pineapple" },
+  { emoji: "🥥", label: "coconut" },
   { emoji: "💣", label: "bomb" },
 ];
 
@@ -27,7 +27,6 @@ const video_el = document.getElementById("input-video");
 let fruits, trail, popups, score, lives, game_over, last_drop;
 let finger_x = null;
 let finger_y = null;
-let animation_frame_id = null;
 
 //1
 function new_game() {
@@ -58,7 +57,7 @@ function drop_fruit() {
 function move_fruits() {
   fruits = fruits.filter((f) => {
     f.x += f.speedX;
-    f.y += f. speedY;
+    f.y += f.speedY;
     if (f.y > canvas_h + fruit_size) {
       if (f.label !== "bomb") lives--;
       return false;
@@ -66,6 +65,7 @@ function move_fruits() {
     return true;
   });
 }
+
 //4
 function check_slices() {
   if (finger_x === null) return;
@@ -121,19 +121,10 @@ function game_loop() {
 
   if (lives <= 0 || game_over) {
     show_game_over();
-    animation_frame_id = null;
     return;
   }
 
-  animation_frame_id = requestAnimationFrame(game_loop);
-}
-
-function start_loop() {
-  if (animation_frame_id !== null) {
-    cancelAnimationFrame(animation_frame_id);
-  }
-
-  animation_frame_id = requestAnimationFrame(game_loop);
+  requestAnimationFrame(game_loop);
 }
 //8
 function show_game_over() {
@@ -150,14 +141,14 @@ function start_game() {
     finger_x = x;
     finger_y = y;
   });
-  start_loop();
+  requestAnimationFrame(game_loop);
 }
 
 //10
 function restart_game() {
   document.getElementById("gameover-overlay").classList.add("hidden");
   new_game();
-  start_loop();
+  requestAnimationFrame(game_loop);
 }
 
 window.start_game = start_game;
